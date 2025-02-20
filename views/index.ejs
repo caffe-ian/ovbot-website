@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>OV Bot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no"/>
+		<!-- <meta name="google-site-verification" content="2PZvKzBx762W-sFqvDWGHcyCr3Lnw_-yW0tjQiScqpI" /> -->
+		<meta name="author" content="OV Bot">
+		<meta name="og:title" content="OV Bot | Homepage">
+		<meta name="og:description" content="OV Bot is a unique mafia-themed RPG Discord bot. Commit crimes, attack players, steal vehicles, and race with other players!">
+		<meta name="og:site_name" content="OV Bot">
+		<meta name="og:type" content="website">
+		<meta name="og:image" content="https://i.vgy.me/1jzMpA.jpg">
+		<meta name="og:image:alt" content="OV Bot Banner">
+		<meta name="theme-color" content="#03dac6">
+		<link rel="stylesheet" href="../assets/css/main.css"/>
+		<link rel="stylesheet" href="../assets/jqueryui/jquery-ui.css"/>
+		<link rel="stylesheet" href="../assets/jqueryui/jquery-ui.structure.css"/>
+		<link rel="stylesheet" href="../assets/jqueryui/jquery-ui.theme.css"/>
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/x-icon" href="../assets/icon.ico">
+	</head>
+	<body class="is-preload">
+		<div id="transition" class="white"></div>
+		<div class="player">
+			<div id="track-name">Sahara</div>
+			<audio src="../assets/audio/0.mp3" id="track" volume="0.2"></audio>
+			<div class="controller">
+				<a class="icon interactable" onclick="mute()"><img class="controller-button" id="mute" src="../assets/css/images/volume.svg"><span class="label">Volume</span></a>
+				<div id="volume">
+					<input id="volume-bar" type="range" value="50" max="100">
+				</div>
+				<a class="icon interactable" onclick="previous()"><img class="controller-button" src="../assets/css/images/previous.svg"><span class="label">Previous track</span></a>
+				<a class="icon interactable" onclick="play_track()"><img id="play" class="controller-button" src="../assets/css/images/play.svg"><span class="label">Play</span></a>
+				<a class="icon interactable" onclick="play_track()"><img id="pause" class="controller-button" src="../assets/css/images/pause.svg"><span class="label">Pause</span></a>
+				<a id="next" class="icon interactable" onclick="next()"><img class="controller-button" src="../assets/css/images/next.svg"><span class="label">Next track</span></a>
+			</div>
+			<div id="slider">
+    		<input type="range" value="0" id="slider-bar" max="171.284898">
+			</div>
+		</div>
+		<a href="#" class="icon interactable top"><img class="image fit" src="../assets/css/images/top.svg"/><span class="label">To the top</span></a>
+		<div class="error">
+			<div class="error-container">
+				<h2>Whoops!</h2>
+				<p>Unknown Error</p>
+				<ok class="error-button" onclick="closealert()">Okay</ok>
+			</div>
+		</div>
+
+    <!-- Header -->
+      <header class="header">
+				<div class="actions header-right">
+					<a href="https://discord.gg/bBeCcuwE95" class="icon brands fa-discord discord-header interactable"><span class="label">Discord</span></a>
+					<dropdown onclick="showDropdown()" class="dropdown icon interactable" style=""><img class="icon-2" src="../assets/css/images/dashboard.svg"/><span class="label">Dashboard</span></dropdown>
+					<div class="dropdown-content interactable">
+						<a href="" onclick="alert('Feature under development')">DASHBOARD</a>
+					</div>
+				</div>
+			</header>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro" class="green">Welcome</a></li>
+							<li><a href="#one" class="green">Features</a></li>
+							<li><a href="#two" class="green">Donation</a></li>
+							<li><a href="#three" class="green">Resources</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+		<main id="momentum-scroll" class="momentum-scroll-home">
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper fullscreen fade-up">
+						<video autoplay muted loop id="intro-vid">
+						  <source src="../assets/css/images/vid.mp4" type="video/mp4">
+						</video>
+						<div class="inner">
+							<div class="column-left">
+								<arrow onClick="slide()" class="icon interactable fa-light left-arrow"><img class="la" src="../assets/css/images/left.svg"/><span class="label">To the left</span></arrow>
+								<div class="column-left-content show">
+									<h1>OV Bot<img class="logo" src="../assets/css/images/ov_bot_logo_circle.png"></h1>
+									<p>OV Bot is a unique RPG Discord bot. Commit crimes, steal vehicles, race and attack other players!</p>
+									<ul class="actions">
+										<li style="width:100%"><a href="https://discord.com/oauth2/authorize?client_id=863028787708559400&permissions=277767121985&response_type=code&redirect_uri=https%3A%2F%2Fovbot.up.railway.app%2F&integration_type=0&scope=identify+bot+applications.commands+applications.commands.permissions.update+messages.read" class="button fit scrolly">Invite the bot</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="column-right">
+								<arrow onClick="slide()" class="icon interactable fa-light right-arrow show"><img class="ra" src="../assets/css/images/right.svg"/><span class="label">To the right</span></arrow>
+								<div class="column-right-content">
+									<h1>Community</h1>
+									<p>Join our official Discord server! Play with players from all over the world in the best community!</p>
+									<ul class="actions">
+										<li style="width:100%"><a href="https://discord.gg/bBeCcuwE95" class="button fit scrolly">Join the server</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 spotlights">
+						<section id="features">
+							<img class="image" src="assets/css/images/spotlight0.png"/>
+							<div class="content">
+								<div class="inner">
+									<h2>Features</h2>
+									<p>What features we possess to make this bot unique and interesting. Get a preview of the bot gameplay!</p>
+									<ul class="actions">
+										<li><a href="features" class="button">Read more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<img class="image" id="speaker" src="assets/css/images/spotlight1.png"/>
+							<div class="content">
+								<div class="inner">
+									<h2>Changelog</h2>
+									<p>Check out our latest updates and announcements!</p>
+									<ul class="actions">
+										<li><a href="changelog" class="button">Read more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<img class="image" src="assets/css/images/spotlight2.png"/>
+							<div class="content">
+								<div class="inner">
+									<h2>Guidelines</h2>
+									<p>Essential advice and resources to help new players navigate the game, understand its features, and become a part of our growing community.</p>
+									<ul class="actions">
+										<li><a href="guidelines" class="button">Read more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up" style="display: flex;">
+						<div class="inner">
+							<h1>Donation</h1>
+							<p>Support us!</p>
+							<div class="product-container">
+								<div class="product pinned">
+									<h3>Royal Pack</h3>
+									<p class="product-description">Gives you 2 Royal cases and 30 days of Royal status!</p>
+									<div class="bottom">
+										<div class="price-tag"><span class="dollar">$</span><span class="price">4.99</span></div>
+										<a href="/donation" class="button fit scrolly proceed">Learn More</a>
+									</div>
+								</div>
+								<div class="product pinned">
+									<h3>Royal+ Pack</h3>
+									<p class="product-description">Gives you 4 Royal cases and 30 days of Royal+ status!</p>
+									<div class="bottom">
+										<div class="price-tag"><span class="dollar">$</span><span class="price">9.99</span></div>
+										<a href="/donation" class="button fit scrolly proceed">Learn More</a>
+									</div>
+								</div>
+								<div class="product">
+									<h3>Stash of Tokens</h3>
+									<p class="product-description">Gives you 340 Tokens!</p>
+									<div class="bottom">
+										<div class="price-tag"><span class="dollar">$</span><span class="price">1.99</span></div>
+										<a href="/donation" class="button fit scrolly proceed">Learn More</a>
+									</div>
+								</div>
+								<div class="product">
+									<h3>Pile of Tokens</h3>
+									<p class="product-description">Gives you 1460 Tokens!</p>
+									<div class="bottom">
+										<div class="price-tag"><span class="dollar">$</span><span class="price">7.99</span></div>
+										<a href="/donation" class="button fit scrolly proceed">Learn More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style2 fade-up">
+						<div class="inner">
+							<h1>Resources</h1>
+							<div class="split style1">
+								<section id="resources">
+									<ul class="actions">
+										<li style="width:100%"><a href="faq" class="button fit scrolly">FAQ</a></li>
+									</ul>
+									<ul class="actions">
+										<li style="width:100%"><a href="privacy-policy" class="button fit scrolly">Privacy Policy</a></li>
+									</ul>
+									<ul class="actions">
+										<li style="width:100%"><a href="terms-of-service" class="button fit scrolly">Terms of Service</a></li>
+									</ul>
+									<ul class="actions">
+										<li style="width:100%"><a href="https://discord.gg/bBeCcuwE95" class="button fit scrolly">Support</a></li>
+									</ul>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Social</h3>
+											<ul class="icons">
+												<li><a href="https://discord.gg/bBeCcuwE95" class="icon brands fa-discord"><span class="label">Discord</span></a></li>
+												<!-- <li><a href="" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="" class="icon brands fa-reddit"><span class="label">Reddit</span></a></li> -->
+											</ul>
+										</li>
+										<li>
+											<h3>Email</h3>
+											<div style="user-select: text !important;">ovbotteam@gmail.com</div>
+										</li>
+										<li>
+											<h3>External Links</h3>
+											<a href="https://top.gg/bot/863028787708559400">Visit us on top.gg</a><br>
+											<a href="https://discordbotlist.com/bots/ov">Visit us on discordbotlist.com</a>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt home-footer">
+				<div class="inner">
+					<ul class="menu">
+						<li><a href="faq">FAQ</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li>
+						<li><a href="/terms-of-service">Terms of Service</a></li>
+						<li style="user-select:text">ovbotteam@gmail.com</li>
+					</ul>
+				</div>
+			</footer>
+		</main>
+
+
+		<!-- Scripts -->
+			<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/web3modal-dynamic-import@1.11.1/dist/index.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.7/dist/umd/index.min.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/jqueryui/jquery-ui.js"></script>
+
+	</body>
+</html>

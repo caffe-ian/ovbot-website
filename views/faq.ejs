@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>OV Bot | FAQs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="author" content="OV Bot">
+		<meta name="og:title" content="OV Bot | FAQs">
+		<meta name="og:description" content="OV Bot is a unique mafia-themed RPG Discord bot. Commit crimes, attack players, steal vehicles, and race with other players!">
+		<meta name="og:site_name" content="OV Bot">
+		<meta name="og:type" content="website">
+		<meta name="og:image" content="https://i.vgy.me/1jzMpA.jpg">
+		<meta name="og:image:alt" content="OV Bot Banner">
+		<meta name="theme-color" content="#03dac6">
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    	<link rel="icon" type="image/x-icon" href="../assets/icon.ico">
+	</head>
+	<body class="is-preload">
+		<div id="transition" class="white"></div>
+		<div class="player">
+			<div id="track-name">Sahara</div>
+			<audio src="../assets/audio/0.mp3" id="track" volume="0.2"></audio>
+			<div class="controller">
+				<a class="icon interactable" onclick="mute()"><img class="controller-button" id="mute" src="../assets/css/images/volume.svg"><span class="label">Volume</span></a>
+				<div id="volume">
+					<input id="volume-bar" type="range" value="50" max="100">
+				</div>
+				<a class="icon interactable" onclick="previous()"><img class="controller-button" src="../assets/css/images/previous.svg"><span class="label">Previous track</span></a>
+				<a class="icon interactable" onclick="play_track()"><img id="play" class="controller-button" src="../assets/css/images/play.svg"><span class="label">Play</span></a>
+				<a class="icon interactable" onclick="play_track()"><img id="pause" class="controller-button" src="../assets/css/images/pause.svg"><span class="label">Pause</span></a>
+				<a id="next" class="icon interactable" onclick="next()"><img class="controller-button" src="../assets/css/images/next.svg"><span class="label">Next track</span></a>
+			</div>
+			<div id="slider">
+    		<input type="range" value="0" id="slider-bar" max="171.284898">
+			</div>
+		</div>
+		<a href="#" class="icon interactable top"><img class="image fit" src="../assets/css/images/top.svg"/><span class="label">To the top</span></a>
+		<div class="error">
+			<div class="error-container">
+				<h2>Whoops!</h2>
+				<p>Unknown Error</p>
+				<ok class="error-button" onclick="closealert()">Okay</ok>
+			</div>
+		</div>
+
+		<!-- Header -->
+			<header class="header">
+				<div class="actions header-left">
+					<a href=".." class="icon interactable"><img class="icon-2" src="../assets/css/images/home.svg" width="45px" height="45px"/><span class="label">Home</span></a>
+				</div>
+				<div class="actions header-right">
+					<a href="https://discord.gg/CPYXNpbmVz" class="icon brands fa-discord discord-header interactable"><span class="label">Discord</span></a>
+					<dropdown onclick="showDropdown()" class="dropdown icon interactable" style=""><img class="icon-2" src="../assets/css/images/dashboard.svg" width="45px" height="45px"/><span class="label">Dashboard</span></dropdown>
+					<div class="dropdown-content interactable">
+						<a href="" onclick="alert('Feature under development')">DASHBOARD</a>
+					</div>
+				</div>
+			</header>
+
+		<!-- Wrapper -->
+		<main id="momentum-scroll">
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main2" class="wrapper">
+						<div class="inner not-home">
+							<h1 class="major">FAQs</h1>
+							<div class="faq-container">
+								<section class="faq-container-inner">
+									<h2 class="faq-title" style="opacity: 1">Donation Related Questions</h2>
+									<div>
+						                <h2 class="faq-page">How can I claim my items after a purchase?<img class="plus" src="../assets/css/images/plus.svg"/></h2>
+						                <div class="faq-body">
+						                    <p>Use the /claim command in OV Bot to claim your items after a purchase!</p>
+						                </div>
+						            </div>
+						            <hr class="hr-line">
+						            <div>
+						                <h2 class="faq-page">Does the duration of Royal or Royal+ status stack?<img class="plus" src="../assets/css/images/plus.svg"/></h2>
+						                <div class="faq-body">
+						                    <p>Yes, Royal status will stack. Purchasing a new Royal pack before your current Royal status expires will extend your Royal status by another 30 days. Same goes to Royal+ Pack.</p>
+						                </div>
+						            </div>
+						            <hr class="hr-line">
+						            <div style="margin-bottom: 3em;">
+						                <h2 class="faq-page">Can I purchase a Royal Pack if I already have a Royal+ status?<img class="plus" src="../assets/css/images/plus.svg"/></h2>
+						                <div class="faq-body">
+						                    <p>Purchasing a Royal Pack before your Royal+ status expires will downgrade your status to a Royal status and reset your Royal status expiry date. Vice versa purchasing a Royal+ Pack before your Royal status expires will instantly upgrade your status to Royal+.</p>
+						                </div>
+						            </div>
+						        </section>
+								<section class="faq-container-inner">
+									<h2 class="faq-title" style="opacity: 1">Account Related Questions</h2>
+						            <div>
+						                <h2 class="faq-page">Can I file a ban appeal?<img class="plus" src="../assets/css/images/plus.svg"/></h2>
+						                <div class="faq-body">
+						                    <p>Yes, ban appeals are available for everyone, if you wish to file an appeal, open a ticket in our <a href="https://discord.gg/bBeCcuwE95">Discord server</a>. Note: bans can only be appealed once, so make sure you follow the rules!</p>
+						                </div>
+						            </div>
+						            <div>
+						                <h2 class="faq-page">How can I obtain a user's Discord ID?<img class="plus" src="../assets/css/images/plus.svg"/></h2>
+						                <div class="faq-body">
+						                    <p>There are two ways you can obtain a user's DIscord ID:<br>
+												&emsp;• Click the user's profile picture > Click more (three dots) > Copy user ID<br>
+												&emsp;• Use the '/id' command through OV Bot
+						                    </p>
+						                </div>
+						            </div>
+						        </section>
+					    	</div>
+
+
+							<ul class="actions">
+								<li style="width: 100%; padding-top: 5em;"><a href=".." class="button fit scrolly">Back</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li><a href="faq">FAQ</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li>
+						<li><a href="/terms-of-service">Terms of Service</a></li>
+						<li style="user-select:text">ovbotteam@gmail.com</li>
+					</ul>
+				</div>
+			</footer>
+		</main>
+
+		<!-- Scripts -->
+			<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/web3modal-dynamic-import@1.11.1/dist/index.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.7/dist/umd/index.min.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/jqueryui/jquery-ui.js"></script>
+
+	</body>
+</html>

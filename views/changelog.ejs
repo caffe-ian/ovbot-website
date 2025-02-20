@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>OV Bot | Changelog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="author" content="OV Bot">
+		<meta name="og:title" content="OV Bot | Changelog">
+		<meta name="og:description" content="OV Bot is a unique mafia-themed RPG Discord bot. Commit crimes, attack players, steal vehicles, and race with other players!">
+		<meta name="og:site_name" content="OV Bot">
+		<meta name="og:type" content="website">
+		<meta name="og:image" content="https://i.vgy.me/1jzMpA.jpg">
+		<meta name="og:image:alt" content="OV Bot Banner">
+		<meta name="theme-color" content="#03dac6">
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    	<link rel="icon" type="image/x-icon" href="../assets/icon.ico">
+	</head>
+	<body class="is-preload">
+		<div id="transition" class="white"></div>
+		<div class="player">
+			<div id="track-name">Sahara</div>
+			<audio src="../assets/audio/0.mp3" id="track" volume="0.2"></audio>
+			<div class="controller">
+				<a class="icon interactable" onclick="mute()"><img class="controller-button" id="mute" src="../assets/css/images/volume.svg"><span class="label">Volume</span></a>
+				<div id="volume">
+					<input id="volume-bar" type="range" value="50" max="100">
+				</div>
+				<a class="icon interactable" onclick="previous()"><img class="controller-button" src="../assets/css/images/previous.svg"><span class="label">Previous track</span></a>
+				<a class="icon interactable" onclick="play_track()"><img id="play" class="controller-button" src="../assets/css/images/play.svg"><span class="label">Play</span></a>
+				<a class="icon interactable" onclick="play_track()"><img id="pause" class="controller-button" src="../assets/css/images/pause.svg"><span class="label">Pause</span></a>
+				<a id="next" class="icon interactable" onclick="next()"><img class="controller-button" src="../assets/css/images/next.svg"><span class="label">Next track</span></a>
+			</div>
+			<div id="slider">
+    		<input type="range" value="0" id="slider-bar" max="171.284898">
+			</div>
+		</div>
+		<a href="#" class="icon interactable top"><img class="image fit" src="../assets/css/images/top.svg"/><span class="label">To the top</span></a>
+		<div class="error">
+			<div class="error-container">
+				<h2>Whoops!</h2>
+				<p>Unknown Error</p>
+				<ok class="error-button" onclick="closealert()">Okay</ok>
+			</div>
+		</div>
+
+		<!-- Header -->
+			<header class="header">
+				<div class="actions header-left">
+					<a href=".." class="icon interactable"><img class="icon-2" src="../assets/css/images/home.svg" width="45px" height="45px"/><span class="label">Home</span></a>
+				</div>
+				<div class="actions header-right">
+					<a href="https://discord.gg/CPYXNpbmVz" class="icon brands fa-discord discord-header interactable"><span class="label">Discord</span></a>
+					<dropdown onclick="showDropdown()" class="dropdown icon interactable" style=""><img class="icon-2" src="../assets/css/images/dashboard.svg" width="45px" height="45px"/><span class="label">Dashboard</span></dropdown>
+					<div class="dropdown-content interactable">
+						<a href="" onclick="alert('Feature under development')">DASHBOARD</a>
+					</div>
+				</div>
+			</header>
+
+		<!-- Wrapper -->
+		<main id="momentum-scroll">
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main2" class="wrapper">
+						<div class="inner not-home" style="padding-right:15%">
+							<h1 class="major">Changelog</h1>
+							<h2>Latest Updates</h2>
+							<div id="updates-container">
+							</div>
+							<h2>Latest Announcements</h2>
+							<div id="announcements-container">
+							</div>
+							<ul class="actions">
+								<li style="width: 100%; padding-top: 5em;"><a href=".." class="button fit scrolly">Back</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li><a href="faq">FAQ</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li>
+						<li><a href="/terms-of-service">Terms of Service</a></li>
+						<li style="user-select:text">ovbotteam@gmail.com</li>
+					</ul>
+				</div>
+			</footer>
+		</main>
+
+		<!-- Scripts -->
+			<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/web3modal-dynamic-import@1.11.1/dist/index.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.7/dist/umd/index.min.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/jqueryui/jquery-ui.js"></script>
+			<script>const updatelist = <%- JSON.stringify(updates) %>;const announcementlist = <%- JSON.stringify(announcements) %>;
+		function convertEpochToUTC(epoch) {
+  const date = new Date(epoch * 1000);
+  return date.toUTCString();
+}
+
+const updatesContainer = document.getElementById("updates-container");
+updatelist.forEach(([timestamp, content]) => {
+  const dateElement = document.createElement("h3");
+  dateElement.classList.add("subtitle");
+  dateElement.innerHTML = convertEpochToUTC(timestamp);
+
+  const contentElement = document.createElement("p");
+  contentElement.innerHTML = "<ul>" + content.split('\n')
+  .map(line => `<li>${line}</li>`)
+  .join('') + "</ul>"
+
+  updatesContainer.appendChild(dateElement);
+  updatesContainer.appendChild(contentElement);
+});
+
+const announcementsContainer = document.getElementById("announcements-container");
+announcementlist.forEach(([timestamp, content]) => {
+  const dateElement = document.createElement("h3");
+  dateElement.classList.add("subtitle");
+  dateElement.innerHTML = convertEpochToUTC(timestamp);
+
+  const contentElement = document.createElement("p");
+  contentElement.innerHTML = "<ul>" + content.split('\n')
+  .map(line => `<li>${line}</li>`)
+  .join('') + "</ul>"
+
+  announcementsContainer.appendChild(dateElement);
+  announcementsContainer.appendChild(contentElement);
+});</script>
+	</body>
+</html>
